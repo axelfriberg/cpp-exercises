@@ -6,6 +6,11 @@
 using namespace std;
 
 MorseCode::MorseCode() {
+	ifstream ifs("morse.def");
+	string line;
+	while(ifs.getLine(line)){
+		encMap.put(char c << line, string s << line);
+	}
 }
 
 string MorseCode::encode(const string& text) const {
