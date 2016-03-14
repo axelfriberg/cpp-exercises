@@ -15,7 +15,7 @@ LDFLAGS =   -g
 #LDFLAGS +=  -stdlib=libc++
 
 # Targets
-PROGS = sizetest datetest pointtest
+PROGS = sizetest datetest pointtest palindrometest
 
 all: $(PROGS)
 
@@ -23,6 +23,7 @@ all: $(PROGS)
 sizetest: sizetest.o point.o
 datetest: datetest.o date.o
 pointtest: pointtest.o point.o
+palindrometest: palindrometest.o
 
 # Phony targets
 .PHONY: all clean
