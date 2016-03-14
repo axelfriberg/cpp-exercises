@@ -8,6 +8,7 @@
 #include <ctime>   /* for C routines time and localtime */
 #include <iostream>
 #include <utility> /* for swap */
+#include <cstdlib>
 
 using namespace std;
 
@@ -21,21 +22,30 @@ Date::Date() {
 	day = locTime->tm_mday;
 }
 
-Date::Date(int y, int m, int d) {}
+Date::Date(int y, int m, int d) : year(y), month(m), day(d){}
 
 int Date::get_year() const {
-	return 0;
+	return year;
 }
 
 int Date::get_month() const {
-	return 0;
+	return month;
 }
 
 int Date::get_day() const {
-	return 0;
+	return day;
 }
 
 void Date::next() {
+	++day;
+	if(day > daysPerMonth[month-1]){
+		++month;
+		day = 1;
+		if(month > 12){
+			++year;
+			month = 1;
+		}
+	}
 }
 
 void print(const Date& d) {
@@ -58,5 +68,15 @@ bool operator<(const Date& d1, const Date& d2) {
 }
 
 int distance(const Date& d1, const Date& d2) {
-	return 0;
+	return abs(d1.daysInDate() - d2.daysInDate());
+}
+
+int Date::daysInDate() const{
+	int days = 0;
+	days = year * 365;
+	for(int i = 0; i < month-1; ++i){
+		days += daysPerMonth[i];
+	}
+	days += day;
+	return days;
 }

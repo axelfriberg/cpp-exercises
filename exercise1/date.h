@@ -14,6 +14,7 @@ public:
 	int get_month() const;     // get the month
 	int get_day() const;       // get the day
 	void next();               // advance to next day
+	int daysInDate() const;
 private:
 	int year;  // the year (four digits)
 	int month; // the month (1-12)
