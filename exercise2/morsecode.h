@@ -15,6 +15,7 @@ public:
 	std::string decode(const std::string& code) const;
 private:
 	std::map<char,std::string> encMap;
+	std::map<std::string,char> decMap;
 };
 
 #endif
