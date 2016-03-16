@@ -10,6 +10,7 @@ class Counted {
 public:
 	Counted();
 	~Counted();
+	Counted(const Counted&);
 	static int getNbrObj();
 private:
 	static int nbrObj;
@@ -25,6 +26,10 @@ Counted::~Counted() {
 	nbrObj--;
 }
 
+Counted::Counted(const Counted&){
+	nbrObj++;
+}
+
 int Counted::getNbrObj() {
 	return nbrObj;
 }
@@ -37,7 +42,7 @@ void f() {
 
 void g() {
 	Counted c1;
-	Counted c2 = c1;
+	Counted c2 = c1; //There is no copy constructor or assignment
 }
 
 void h() {

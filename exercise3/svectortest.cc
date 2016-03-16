@@ -30,6 +30,7 @@ int main() {
 	print(v2); // should print 10 20 30 40 50
 	cout << endl;
 	
+	//V1 has been deleted since it was copied to print and then went out of scope
 	print(v1); // should print 1 2 3 4 5 6 7 8 9 10
 	cout << endl;
 }
