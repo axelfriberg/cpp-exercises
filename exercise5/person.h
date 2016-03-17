@@ -8,8 +8,7 @@
  */
 class Person {
 public:
-	Person(const std::string& n, const std::string& p) :
-	name(n), phone(p) {}
+	Person(const std::string& n, const std::string& p) : name(n), phone(p) {}
 	std::string get_name() const { return name; }
 	std::string get_phone() const { return phone; }
 private:

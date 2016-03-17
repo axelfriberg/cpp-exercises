@@ -25,7 +25,13 @@ int main() {
 		 ostream_iterator<Person>(cout, "\n"));
 	cout << endl;
 	
-	sort(phonebook.begin(), phonebook.end());
+	sort(phonebook.begin(), phonebook.end(), [](Person p1, Person p2){
+		if(p1.get_name() != p2.get_name()){
+			return p1.get_name() < p2.get_name();
+		} else {
+			return p1.get_phone() < p2.get_phone();
+		}
+	});
 	
 	cout << "Sorted:" << endl;
 	copy(phonebook.begin(), phonebook.end(), 

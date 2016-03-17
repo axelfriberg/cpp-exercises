@@ -5,30 +5,42 @@
 
 using namespace std;
 
+ostream& operator<<(ostream& os, const vector<string>& v){
+	for(auto s : v){
+		os << s << " ";
+	}
+	return os;
+}
+
 int main() {
 	vector<string> v = {"Mary", "had", "a", "little", "lamb", "and", "some",
 		"olives", "on", "the", "side"};
 	
 	// print the words: Mary had a little lamb and some olives on the side
-	//cout << v << endl;
+	cout << v << endl;
 	
 	// sort in alphabetical order: Mary a and had lamb little olives on side some the
-
-	//cout << v << endl;
+	sort(v.begin(),v.end());
+	cout << v << endl;
 	
 	// in reverse order: the some side on olives little lamb had and a Mary
-
-	//cout << v << endl;
+	reverse(v.begin(),v.end());
+	cout << v << endl;
 	
 	// by ascending length: a on the and had Mary lamb side some olives little
-
-	//cout << v << endl;
+	sort(v.begin(),v.end(),[](string s1, string s2){return s1.size() < s2.size();});
+	cout << v << endl;
 	
 	// sort in alphabetical order again, print three-letter words: and had the
+	sort(v.begin(),v.end());
 
-	//cout << v << endl;
+	for_each(v.begin(), v.end(),
+			 [](const string& s) { if (s.length() == 3) { cout << s << " "; }});
+	cout << endl;
 	
 	// remove words with <= three letters: Mary lamb little olives side some
-
-	//cout << v << endl;
+	auto it = remove_if(v.begin(), v.end(),
+						[](const string& s) { return s.length() <= 3; });
+	v.erase(it, v.end());
+	cout << v << endl;
 }

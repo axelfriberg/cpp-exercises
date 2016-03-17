@@ -1,4 +1,4 @@
-//#include "av.h"
+#include "av.h"
 
 #include <iostream>
 #include <string>
@@ -8,7 +8,7 @@ using namespace std;
 int main() {
 	AV<string, int> months;
 	months.insert({"january", 31});
-	months.insert({"february", 28});
+	/*months.insert({"february", 28});
 	months.insert({"march", 31});
 	months.insert({"april", 30});
 	months.insert({"may", 31});
@@ -30,5 +30,5 @@ int main() {
 		} else {
 			cout << m << " is not a month" << endl;
 		}
-	}
+	}*/
 }
